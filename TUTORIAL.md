@@ -72,7 +72,6 @@ curl -L https://github.com/sm/sm/tarball/master -o sm-head.tar.gz && tar zxf sm-
                                      Dload  Upload   Total   Spent    Left  Speed
     100  227k  100  227k    0     0   358k      0 --:--:-- --:--:-- --:--:-- 5172k
     S{cripting,ystem,tack} Management (SM) Framework (Core) Installation:
-      [ ] Ensuring that installation target path exists (/home/rpowell/.sm)... /home/rpowell/.rvm/scripts/hook:12: array parameter hooks created globally in function
       [✔] Ensuring that installation target path exists (/home/rpowell/.sm)
       [✔] Creating install path directories (bin log tmp src)
       [✔] Installing core directories (bin)
