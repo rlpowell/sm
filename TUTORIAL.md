@@ -4,6 +4,9 @@
 > into a real language is its main awesomeness.
 >
 > This document is a tutorial walkthrough showing some nifty bits.
+
+FIXME: Put some obviously-nifty bits here.
+
 >
 > SM requires a very recent version of zsh, which I happen to not
 > have, but the authors have provided a tool that will install it in
@@ -112,10 +115,64 @@ grep -i rvm ~/.z*
 
     /home/rpowell/.zshenv:[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
-> If so, replace that line with this (you may need to run something
- like "rvm use 1.9.3 --default" to set up a default first):
+> If so, replace that line with this (you may need to run something like "rvm use 1.9.3 --default" to set up a default first):
 
     [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/environments/default"  # This loads RVM into a shell session.
+
+> Now some basic commands.  First, a list of installed extensions.
+
+sm ext
+
+    exts: #system
+
+> Now a list of known/available extensions.  FIXME: Hardly a
+> complete list; what gives?
+
+sm ext known
+
+    #     Extension name | Repository
+                  apidoc   sm/sm_apidoc
+                  deploy   sm/sm_deploy
+                   # mux   sm/sm_mux
+               mp_backup   mpapis/sm_backup
+
+> The apidoc extension has the documentation for the built-in
+> functions that come with the SM framework, of which there are
+> many.  FIXME: As of 12 Dec 2011, the docs are pretty incomplete,
+> but what's there is quite good.
+
+sm ext install apidoc
+
+      [✔] apidoc head
+
+sm apidoc array each
+
+    # array(s) module api is loaded with the line 'api/array' in shell/includes.
+    
+    # First we declare the my_array variable that we will use, as an array ('-a')
+    typeset -a my_array
+    
+    # Now we assign five elements into our array.
+    my_array=(one two three four five)
+    
+    
+    # Printing out the array at this point should show these five elements:
+    # one two three four five
+    array print my_array
+    one two three four five
+    
+    # We can loop over each element in the array and execute a code string where
+    # the element is stored in the variable $element
+    array each my_array run 'printf "~$element~ "'
+    ~one~ ~two~ ~three~ ~four~ ~five~
+    
+    # We can also specify the variable name to set:
+    array each my_array variable count run 'printf "~$count~ "'
+    ~one~ ~two~ ~three~ ~four~ ~five~
+    
+    # We can also specify variable with 'as' and the command to run with 'do'
+    array each my_array as count do 'printf "~$count~ "'
+    ~one~ ~two~ ~three~ ~four~ ~five~ %
 
 > Go into our extension directory
 cd myext/
