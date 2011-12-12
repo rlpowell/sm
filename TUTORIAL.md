@@ -175,7 +175,7 @@ sm apidoc array each
 
 > Let's try out some of those functions.
 
-sm command 'includes api/array ; typeset -a my_array ; my_array=(one two three four five) ; array each my_array run "printf ~\$element~ "'
+sm command 'includes api/array ; typeset -a my_array ; my_array=(one two three four five) ; array each my_array run "printf ~\$element~ " '
 
     ~one~
     ~two~
