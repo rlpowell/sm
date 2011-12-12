@@ -1,0 +1,6 @@
+#!/bin/sh
+
+trap - ZERR
+typeset -x ZDOTDIR
+ZDOTDIR=${extension_path}/../cli/zdotdir
+zsh -i -c "${extension_args[@]}"
