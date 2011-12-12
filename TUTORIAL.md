@@ -173,6 +173,18 @@ sm apidoc array each
     array each my_array as count do 'printf "~$count~ "'
     ~one~ ~two~ ~three~ ~four~ ~five~ %
 
+> Let's try out some of those functions.
+
+sm command 'includes api/array ; typeset -a my_array ; my_array=(one two three four five) ; array each my_array run "printf ~\$element~ "'
+
+    ~one~
+    ~two~
+    ~three~
+    ~four~
+    ~five~
+
+-------------------------------------------------------
+
 > Go into our extension directory
 cd myext/
 
